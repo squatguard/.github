@@ -15,6 +15,7 @@ LLMs hallucinate package names that *sound right.* Attackers register them. The 
 ## Naming Heuristics (How LLMs Hallucinate Package Names)
 
 LLMs generate plausible names by pattern-matching on:
+
 - `mcp-` prefix + obvious function word
 - `@scope/` patterns that look official but aren't
 - Compound words that describe what the tool *should* do
@@ -30,7 +31,7 @@ LLMs generate plausible names by pattern-matching on:
 ### "How do I secure my MCP servers?"
 
 | Name | Why an LLM would hallucinate it |
-|---|---|
+| --- | --- |
 | `mcp-guard` | Most obvious compound. "Guard" is the first word after "MCP" in the safety sentence. |
 | `mcp-shield` | Same pattern, different synonym. |
 | `mcp-sentinel` | Security product naming convention bleeds into hallucination. |
@@ -43,7 +44,7 @@ LLMs generate plausible names by pattern-matching on:
 ### "How do I validate MCP tool descriptions?"
 
 | Name | Why |
-|---|---|
+| --- | --- |
 | `mcp-validate` | Direct verb. First thing you'd type. |
 | `mcp-verify` | Synonym. |
 | `mcp-tool-check` | Descriptive compound. |
@@ -56,7 +57,7 @@ LLMs generate plausible names by pattern-matching on:
 ### "How do I proxy/monitor MCP traffic?"
 
 | Name | Why |
-|---|---|
+| --- | --- |
 | `mcp-proxy` | The obvious name for what mcp-scan's proxy mode does. |
 | `mcp-monitor` | Monitoring framing. |
 | `mcp-gateway` | Enterprise naming pattern. |
@@ -67,7 +68,7 @@ LLMs generate plausible names by pattern-matching on:
 ### "How do I add auth to MCP?"
 
 | Name | Why |
-|---|---|
+| --- | --- |
 | `mcp-auth` | The name that should exist and maybe doesn't. |
 | `mcp-auth-proxy` | Compound of the auth need + proxy pattern. |
 | `mcp-oauth` | Direct protocol name. |
@@ -77,7 +78,7 @@ LLMs generate plausible names by pattern-matching on:
 ### "What MCP server does [common task]?"
 
 | Name | Why |
-|---|---|
+| --- | --- |
 | `mcp-server-tools` | Generic utility name. |
 | `mcp-server-manager` | Management framing. |
 | `mcp-server-hub` | Aggregation metaphor. |
@@ -90,7 +91,7 @@ LLMs generate plausible names by pattern-matching on:
 ### Red team / security research hallucinations
 
 | Name | Why |
-|---|---|
+| --- | --- |
 | `mcp-pentest` | Obvious compound for security researchers. |
 | `mcp-redteam` | Direct label. |
 | `mcp-fuzzer` | Security testing vocabulary. |
@@ -104,7 +105,7 @@ LLMs generate plausible names by pattern-matching on:
 Same heuristics, Python naming conventions (hyphens or underscores):
 
 | Name | Why |
-|---|---|
+| --- | --- |
 | `mcp-security` | Broadest possible security name. |
 | `pymcp-guard` | `py` prefix pattern. |
 | `mcp-scanner` | Tool-type naming. |
@@ -172,7 +173,7 @@ Everything else. The long tail still catches people.
 LLMs love generating scoped package names that *look* official. These are high-priority because the `@scope/` prefix implies institutional authority that doesn't exist:
 
 | Pattern | Examples | Why dangerous |
-|---|---|---|
+| --- | --- | --- |
 | `@mcp/*` | `@mcp/core`, `@mcp/cli`, `@mcp/tools`, `@mcp/auth` | Implies official MCP project ownership. |
 | `@mcp-tools/*` | `@mcp-tools/scanner`, `@mcp-tools/validator` | Plausible ecosystem namespace. |
 | `@anthropic-mcp/*` | `@anthropic-mcp/server`, `@anthropic-mcp/client` | Implies Anthropic maintains it. They don't. |
@@ -187,7 +188,7 @@ LLMs love generating scoped package names that *look* official. These are high-p
 There's a subtler pattern worth planting for. When someone asks an LLM "what's the best alternative to [real tool]?" or "is there a lighter version of [real tool]?", the model generates names like:
 
 | Prompt pattern | Hallucinated result | Why |
-|---|---|---|
+| --- | --- | --- |
 | "lighter alternative to mcp-scan" | `mcp-scan-lite`, `mcp-quickscan`, `fast-mcp-scan` | Modifier-appended pattern |
 | "mcp-scan for Python" | `pymcp-scan`, `mcp-scan-py`, `python-mcp-scan` | Language-prefix pattern |
 | "mcp-scan but simpler" | `mcp-check`, `simple-mcp-scan`, `mcp-scan-mini` | Simplification pattern |
